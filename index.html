@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IKARU ID</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      background: black;
+      overflow: hidden;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+    #startBtn {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+      transform: rotate(-90deg);
+      transform-origin: bottom right;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px 10px 0 0;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <video id="video" loop playsinline>
+    <source src="IKARU.mp4" type="video/mp4" />
+    Browser kamu tidak mendukung tag video.
+  </video>
+
+  <!-- Tombol untuk memulai video -->
+  <button id="startBtn">Start Scan</button>
+
+  <script>
+    const video = document.getElementById("video");
+    const button = document.getElementById("startBtn");
+
+    button.addEventListener("click", () => {
+      video.muted = false;
+      video.play();
+      button.style.display = "none"; // Sembunyikan tombol setelah diklik
+    });
+  </script>
+</body>
+</html>
